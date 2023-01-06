@@ -1,0 +1,15 @@
+title: module-name
+description: |-
+  this is a description
+source: https://github.com/someone/module-name
+types:
+  - id: sample
+    description: A sample custom type
+    schema: # JSON schema should be defined here
+    render:
+      output_format: markup-template-to-execute
+      txt: ${title}:${description}
+content:
+  - id: an-unique-id
+    type: sample
+    # TODO: add values

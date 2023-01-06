@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specification.powerd6.org/schemas/module.json",
+  "title": "module",
+  "type": "object",
+  "description": "A document that contains information detailing and explaining rules and/or content, meant to be used for rendering by powerd6.",
+  "properties": {},
+  "required": [],
+  "additionalProperties": false
+}
