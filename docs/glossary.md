@@ -35,4 +35,4 @@ The aggregation of properties, their value-types and their [rendering](#render) 
 > - mandatory fields "name", "cost", "effect"
 > - non-mandatory field "icon"
 > 
-> Optionally, a rendering rule could be defined to display the information next to the icon, in a specific format.
+> Optionally, a rendering rule could be defined to display the information next to the icon in `html`, but not in `txt` renders.
