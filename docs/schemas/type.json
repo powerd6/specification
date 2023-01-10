@@ -38,5 +38,36 @@
     "id",
     "description"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "spell",
+      "description": "Arcane or mystical arts that can be used inside or outside combat.",
+      "schema": {
+        "properties": {
+          "name": {
+            "description": "The name of the spell.",
+            "type": "string"
+          },
+          "recovery": {
+            "description": "How many turns must be passed before using the spell again.",
+            "type": "number"
+          },
+          "effect": {
+            "description": "The effect that is executed when the spell is used.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "recovery",
+          "effect"
+        ]
+      },
+      "rendering": {
+        "txt": "${name}:\n(Recovery ${recovery})\n${effect}",
+        "md": "# ${name}\n> Recovery ${recovery}\n\n${effect}"
+      }
+    }
+  ]
 }
