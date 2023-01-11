@@ -8,4 +8,3 @@ See [the powerd6 Code of Conduct](https://github.com/power-d6/.github/blob/main/
 ## Contributing
 
 See [the powerd6 Contributing guidelines](https://github.com/power-d6/.github/blob/main/CONTRIBUTING.md).
-

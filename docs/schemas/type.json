@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specification.powerd6.org/schemas/type.json",
+  "title": "type",
+  "type": "object",
+  "description": "The aggregation of properties, their value-types and their rendering rules.",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of the type.",
+      "type": "string"
+    },
+    "description": {
+      "description": "The human-readable description of what the type represents.",
+      "type": "string"
+    },
+    "schema": {
+      "description": "The json-schema used to validate the type.",
+      "$ref": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "rendering": {
+      "description": "The rendering code for all the supported formats.",
+      "type": "object",
+      "properties": {
+        "format": {
+          "description": "The identifier for the file format",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 4
+        },
+        "template": {
+          "description": "The template to be used for the specified format",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "description"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "spell",
+      "description": "Arcane or mystical arts that can be used inside or outside combat.",
+      "schema": {
+        "properties": {
+          "name": {
+            "description": "The name of the spell.",
+            "type": "string"
+          },
+          "recovery": {
+            "description": "How many turns must be passed before using the spell again.",
+            "type": "number"
+          },
+          "effect": {
+            "description": "The effect that is executed when the spell is used.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "recovery",
+          "effect"
+        ]
+      },
+      "rendering": {
+        "txt": "${name}:\n(Recovery ${recovery})\n${effect}",
+        "md": "# ${name}\n> Recovery ${recovery}\n\n${effect}"
+      }
+    }
+  ]
+}
