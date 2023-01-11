@@ -1,0 +1,14 @@
+[book]
+title = "powerd6 Specification"
+description = "The open specification for the powerd6 system and tools"
+authors = ["Hector Castelli Zacharias"]
+
+language = "en"
+multilingual = false
+
+src = "docs"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+
+renderer = ["html"]
