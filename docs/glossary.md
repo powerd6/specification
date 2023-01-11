@@ -2,15 +2,8 @@
 
 This is an opinionated glossary for the terms used by the powerd6 team.
 
----
-
-**Table of Contents**
-
-- [Glossary](#glossary)
-  - [Module](#module)
-  - [Render](#render)
-  - [Type](#type)
-
+## Table of Contents
+<!-- toc -->
 ---
 
 ## Module
