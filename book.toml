@@ -12,3 +12,9 @@ src = "docs"
 command = "mdbook-toc"
 
 renderer = ["html"]
+
+[output.html]
+git-repository-url = "https://github.com/power-d6/specification"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/power-d6/specification/edit/master/guide/{path}"
+cname = "specification.powerd6.org"
