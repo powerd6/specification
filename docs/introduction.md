@@ -1,9 +1,9 @@
-# powerd6 specifications
+# Welcome!
 
-The open specification for the powerd6 system and tools
+This book is the living specification for the [powerd6](https://powerd6.org) ecosystem.
 
-## This book
+## What to expect
 
-This book is meant to guide any new users or contributors in how the project works and why.
+This book is primarily meant to be used as a technical reference to the ecosystem of tools and technologies that power the powerd6 systems behind-the-scenes.
 
-We recommend you first read it in the displayed order if you are completely new to the project. For more experienced users, the search function exists and is **very** useful.
+It is mostly aimed at **module authors** and **developers**.
