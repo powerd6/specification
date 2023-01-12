@@ -1,0 +1,20 @@
+[book]
+title = "powerd6 Specification"
+description = "The open specification for the powerd6 system and tools"
+authors = ["Hector Castelli Zacharias"]
+
+language = "en"
+multilingual = false
+
+src = "docs"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+
+renderer = ["html"]
+
+[output.html]
+git-repository-url = "https://github.com/power-d6/specification"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/power-d6/specification/edit/master/guide/{path}"
+cname = "specification.powerd6.org"

@@ -1,0 +1,45 @@
+name: Deploy to pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  settings:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - name: Install mdbook
+        run: |-
+          cargo install mdbook
+          cargo install mdbook-toc
+      - name: Update ADR indexes
+        run: |-
+          npx adr-log -i $(cat .adr-dir)/_index.md -d $(cat .adr-dir) -e _index.md
+      - name: Build mdbook
+        run: |-
+          mdbook build
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: "book"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
