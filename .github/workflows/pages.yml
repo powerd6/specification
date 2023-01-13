@@ -27,9 +27,6 @@ jobs:
         run: |-
           cargo install mdbook
           cargo install mdbook-toc
-      - name: Update ADR indexes
-        run: |-
-          npx adr-log -i $(cat .adr-dir)/_index.md -d $(cat .adr-dir) -e _index.md
       - name: Build mdbook
         run: |-
           mdbook build
@@ -38,7 +35,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
           path: "book"
       - name: Deploy to GitHub Pages
         id: deployment

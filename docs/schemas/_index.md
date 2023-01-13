@@ -81,6 +81,20 @@
       "effect": {
         "description": "The effect that is executed when the spell is used.",
         "type": "string"
+      },
+      "icon": {
+        "description": "The icon that represents the spell.",
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uri"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "image/png"
+          }
+        ]
       }
     },
     "required": [
@@ -91,7 +105,7 @@
   },
   "rendering": {
     "txt": "${name}:\n(Recovery ${recovery})\n${effect}",
-    "md": "# ${name}\n> Recovery ${recovery}\n\n${effect}"
+    "md": "# ${name}\n![](${icon})\n> Recovery ${recovery}\n\n${effect}"
   }
 }
 ```
