@@ -1,5 +1,8 @@
 # specification
-The open specification for the powerd6 system and tools
+
+The open specification for the powerd6 system and tools.
+
+Available on [specification.powerd6.org](https://specification.powerd6.org/) .
 
 ## Code of conduct
 
