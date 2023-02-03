@@ -8,7 +8,14 @@ Accepted
 
 ## Context
 
-The issue motivating this decision, and any context that influences or constrains the decision.
+There are multiple possible options to handle module combination.
+
+While a custom implementation specifically for powerd6 would be possible, it would require significant effort to implement and document, therefore, custom merge mechanism will not be used.
+
+By relying on the transport mechanism for the modules, JSON, we can leverage well-known patterns, like:
+
+- json patch
+- json merge patch
 
 <!--
 TODO: review https://erosb.github.io/post/json-patch-vs-merge-patch/ for options,
