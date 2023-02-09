@@ -1,0 +1,43 @@
+{
+    "id": "spell",
+    "description": "Arcane or mystical arts that can be used inside or outside combat.",
+    "schema": {
+        "properties": {
+            "name": {
+                "description": "The name of the spell.",
+                "type": "string"
+            },
+            "recovery": {
+                "description": "How many turns must be passed before using the spell again.",
+                "type": "number"
+            },
+            "effect": {
+                "description": "The effect that is executed when the spell is used.",
+                "type": "string"
+            },
+            "icon": {
+                "description": "The icon that represents the spell.",
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    {
+                        "type": "string",
+                        "contentEncoding": "base64",
+                        "contentMediaType": "image/png"
+                    }
+                ]
+            }
+        },
+        "required": [
+            "name",
+            "recovery",
+            "effect"
+        ]
+    },
+    "rendering": {
+        "txt": "${name}:\n(Recovery ${recovery})\n${effect}",
+        "md": "# ${name}\n![](${icon})\n> Recovery ${recovery}\n\n${effect}"
+    }
+}
