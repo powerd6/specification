@@ -27,6 +27,7 @@ jobs:
         run: |-
           cargo install mdbook
           cargo install mdbook-toc
+          cargo install mdbook-linkcheck
       - name: Build mdbook
         run: |-
           mdbook build

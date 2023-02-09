@@ -18,3 +18,13 @@ git-repository-url = "https://github.com/power-d6/specification"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/power-d6/specification/edit/master/guide/{path}"
 cname = "specification.powerd6.org"
+
+[output.linkcheck]
+follow-web-links = true
+traverse-parent-directories = false
+user-agent = "mdbook-linkcheck-0.4.0"
+cache-timeout = 43200
+warning-policy = "error"
+exclude = [
+  'https://powerd6.org', # Currently empty and failing SSL check
+]

@@ -12,7 +12,7 @@ A module is a document that contains information detailing and explaining rules 
 
 Modules can be combined into (larger) modules.
 
-Schema documentation is available [here](/schemas/_index.md#module).
+Schema documentation is available [here](schemas/_index.md#module).
 
 ## Render
 
@@ -34,4 +34,4 @@ The aggregation of properties, their value-types and their [rendering](#render) 
 > 
 > Optionally, a rendering rule could be defined to display the information next to the icon in `html`, but not in `txt` renders.
 
-Schema documentation is available [here](/schemas/_index.md#type).
+Schema documentation is available [here](schemas/_index.md#type).
