@@ -1,0 +1,16 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/docs/schemas/module.example.json"
+            ],
+            "url": "/docs/schemas/module.json"
+        },
+        {
+            "fileMatch": [
+                "/docs/schemas/type.example.json"
+            ],
+            "url": "/docs/schemas/type.json"
+        }
+    ]
+}
