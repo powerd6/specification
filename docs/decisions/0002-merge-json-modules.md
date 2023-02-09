@@ -14,19 +14,17 @@ While a custom implementation specifically for powerd6 would be possible, it wou
 
 By relying on the transport mechanism for the modules, JSON, we can leverage well-known patterns, like:
 
-- json patch
-- json merge patch
+- [Json Patch](https://jsonpatch.com/)
+- [JSON Merge Patch](https://www.rfc-editor.org/rfc/rfc7396)
 
-<!--
-TODO: review https://erosb.github.io/post/json-patch-vs-merge-patch/ for options,
-consider changing json-schema to support merge-patch
-(arrays are unsupported, dictionaries must be used instead.)
--->
+The main difference between them is how JSON is used to signifiy changes to an original document. The Patch mechanism can be seen as a list of changes, while the Merge-Patch can be seen as a complete valid object that needs to interact with the existing object.
+
+In reality, both allow for the same end-goals, but the nature of the json-patch means that module would need to be compiled into jsonPatches before being merged. [This article](https://erosb.github.io/post/json-patch-vs-merge-patch/) goes into more depth on the subject matter.
 
 ## Decision
 
-The change that we're proposing or have agreed to implement.
+The chosen mechanism for combining modules is JSON Merge Patch.
 
 ## Consequences
 
-What becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated.
+The existing schemas must replace all usage of arrays with maps, since Merge Patch is unable to operate on arrays in the intuitive way.
