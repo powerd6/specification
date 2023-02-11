@@ -52,6 +52,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: book
+          path: book/
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload to pages
