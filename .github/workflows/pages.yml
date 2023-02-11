@@ -49,16 +49,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download build
+        id: download
         uses: actions/download-artifact@v3
         with:
           name: book
-          path: book/
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload to pages
         uses: actions/upload-pages-artifact@v1
         with:
-          path: book/html/
+          path: ${{steps.download.outputs.download-path}}/book/html/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
