@@ -52,16 +52,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: book
-      - name: test
-        run: |-
-          ls -R .
-          ls -R /home/runner/work/specification/
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload to pages
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "specification/book/html"
+          path: "./book/html"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
