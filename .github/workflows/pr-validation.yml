@@ -12,3 +12,28 @@ jobs:
   check-changelog:
     uses: power-d6/.github/.github/workflows/check-changelog.yml@main
     secrets: inherit
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - name: Install mdbook
+        uses: baptiste0928/cargo-install@v1.3.0
+        with:
+          crate: mdbook
+      - name: Install mdbook-toc
+        uses: baptiste0928/cargo-install@v1.3.0
+        with:
+          crate: mdbook-toc
+      - name: Install mdbook-linkcheck
+        uses: baptiste0928/cargo-install@v1.3.0
+        with:
+          crate: mdbook-linkcheck
+      - name: Build mdbook
+        run: |-
+          mdbook build
+      - name: Upload book
+        uses: actions/upload-artifact@v3
+        with:
+          name: book
+          path: book/
+          if-no-files-found: error
