@@ -50,7 +50,8 @@ jobs:
     steps:
       - name: test
         run: |-
-          ls -R
+          ls -R .
+          ls -R /home/runner/work/specification/
       - name: Download build
         uses: actions/download-artifact@v3
         with:
