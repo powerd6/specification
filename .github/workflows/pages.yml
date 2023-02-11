@@ -24,15 +24,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
       - name: Install mdbook
-        uses: baptiste0928/cargo-install@v1
+        uses: baptiste0928/cargo-install@v1.3.0
         with:
           crate: mdbook
       - name: Install mdbook-toc
-        uses: baptiste0928/cargo-install@v1
+        uses: baptiste0928/cargo-install@v1.3.0
         with:
           crate: mdbook-toc
       - name: Install mdbook-linkcheck
-        uses: baptiste0928/cargo-install@v1
+        uses: baptiste0928/cargo-install@v1.3.0
         with:
           crate: mdbook-linkcheck
       - name: Build mdbook
