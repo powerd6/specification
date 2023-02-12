@@ -8,6 +8,11 @@ on:
       - "synchronize"
       - "labeled"
       - "unlabeled"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check-changelog:
     uses: power-d6/.github/.github/workflows/check-changelog.yml@main
