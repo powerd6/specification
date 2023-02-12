@@ -16,18 +16,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Install mdbook
-        uses: baptiste0928/cargo-install@v1.3.0
-        with:
-          crate: mdbook
-      - name: Install mdbook-toc
-        uses: baptiste0928/cargo-install@v1.3.0
-        with:
-          crate: mdbook-toc
-      - name: Install mdbook-linkcheck
-        uses: baptiste0928/cargo-install@v1.3.0
-        with:
-          crate: mdbook-linkcheck
+        run: |-
+          cargo install mdbook
+          cargo install mdbook-toc
+          cargo install mdbook-linkcheck
       - name: Build mdbook
         run: |-
           mdbook build
