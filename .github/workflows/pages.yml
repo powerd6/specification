@@ -31,9 +31,9 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Install mdbook
         run: |-
-          cargo install mdbook
-          cargo install mdbook-toc
-          cargo install mdbook-linkcheck
+          cargo install mdbook || true
+          cargo install mdbook-toc || true
+          cargo install mdbook-linkcheck || true
       - name: Build mdbook
         run: |-
           mdbook build
