@@ -20,18 +20,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Install mdbook
-        uses: baptiste0928/cargo-install@v1.3.0
-        with:
-          crate: mdbook
-      - name: Install mdbook-toc
-        uses: baptiste0928/cargo-install@v1.3.0
-        with:
-          crate: mdbook-toc
-      - name: Install mdbook-linkcheck
-        uses: baptiste0928/cargo-install@v1.3.0
-        with:
-          crate: mdbook-linkcheck
+        run: |-
+          cargo install mdbook || true
+          cargo install mdbook-toc || true
+          cargo install mdbook-linkcheck || true
       - name: Build mdbook
         run: |-
           mdbook build
@@ -48,10 +50,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: test
-        run: |-
-          ls -R
       - name: Download build
+        id: download
         uses: actions/download-artifact@v3
         with:
           name: book
@@ -60,7 +60,7 @@ jobs:
       - name: Upload to pages
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "specification/book/html"
+          path: ${{steps.download.outputs.download-path}}/html/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
