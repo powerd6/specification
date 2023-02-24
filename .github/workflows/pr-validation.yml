@@ -10,5 +10,5 @@ on:
       - "unlabeled"
 jobs:
   check-changelog:
-    uses: power-d6/.github/.github/workflows/check-changelog.yml@main
+    uses: powerd6/.github/.github/workflows/check-changelog.yml@main
     secrets: inherit
