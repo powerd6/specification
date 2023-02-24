@@ -14,9 +14,9 @@ command = "mdbook-toc"
 renderer = ["html"]
 
 [output.html]
-git-repository-url = "https://github.com/power-d6/specification"
+git-repository-url = "https://github.com/powerd6/specification"
 git-repository-icon = "fa-github"
-edit-url-template = "https://github.com/power-d6/specification/edit/master/guide/{path}"
+edit-url-template = "https://github.com/powerd6/specification/edit/master/guide/{path}"
 cname = "specification.powerd6.org"
 
 [output.linkcheck]
